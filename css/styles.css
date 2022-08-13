@@ -1,128 +1,184 @@
 :root{
-    --brightOrange: hsl(31, 77%, 52%);
-    --darkCyan: hsl(184, 100%, 22%);
-    --veryDarkCyan: hsl(179, 100%, 13%);
-    --transparentWhite: hsla(0, 0%, 100%, 0.75);
-    --veryLightGray: hsl(0, 0%, 95%);
+    --VeryDarkBlue: hsl(233, 47%, 7%);
+    --DarkDesaturatedBlue: hsl(244, 38%, 16%);
+    --SoftViolet: hsl(277, 64%, 61%);
+    --White: hsl(0, 0%, 100%);
+    --SlightlyParagraph: hsla(0, 0%, 100%, 0.75);
+    --SlightlyHeadings: hsla(0, 0%, 100%, 0.6);
+    --mask: hsl(277, 79%, 36%);
+
+    --pricipalFont:'Inter', sans-serif;
+    --secundaryFont: 'Lexend Deca', sans-serif;
+   
     
-    --secundaryFont:'Big Shoulders Display', cursive;
-    --principalFont: 'Lexend Deca', sans-serif;
 }
 
 html{
     font-size: 62.5%;
     box-sizing: border-box;
 }
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
 body{
+    background-color: var(--VeryDarkBlue);
     min-height: 100vh;
-    display: flex;
+    display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 1.5rem;
-    background-color: var( --veryLightGray);
- 
+   
 }
-*, *:before, *:after {
-    box-sizing: inheri
+img{
+    width: 100%;
+    border-radius: 1rem 1rem 0 0;    
 }
-h2{
-    font-family: var(--secundaryFont);
-    font-size: 3.5rem;
-    font-weight: bold;
-    color: var(--veryLightGray);
-    text-transform: uppercase;
-}
-p{
-    font-family: var(--principalFont);
-    font-size: 1.5rem;
-    font-weight: 400;
-    text-align: left;
-    color: var(--transparentWhite);
-    margin-bottom: 4rem;
-    line-height: 1.5;
-}
-
 @media (min-width: 768px) {
-    p{
-       margin-bottom: 10rem;
+    img{
+        border-radius: 0 1rem 1rem 0;
     }
    
 }
-.button{
-    display: block;
-    background-color: var(--veryLightGray);
-    padding: 1.5rem;
-    border-radius: 3rem;
-    margin-top: 2rem;
-    text-decoration: none;
-    font-family: var(--principalFont);
-    font-size: 1.5rem;
-    font-weight: 400;
-    text-align: center;
-    width: 40%;
+h1{
+    text-align: center; 
+    font-family: var(--pricipalFont);
+    font-size: 2.8rem;
+    font-weight: 700;
+    color:var(--White);
+}
+@media (min-width: 768px) {
+   h1{
+        text-align: left;
+        font-size: 3.8rem;
+   }
+}
+h2{
+    text-align: center; 
+    font-family: var(--pricipalFont);
+    font-size: 2rem;
+    color:var(--White);
+    font-weight: 700;
+}
+@media (min-width: 768px) {
+   h2{
+    text-align: left;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+   }
 }
 
-.button:hover{
-    background-color: transparent;
-    color: var(--transparentWhite);
-    border: 2px solid var(--veryLightGray);
+h3{
+    text-align: center; 
+    font-family: var(--secundaryFont);
+    font-size: 1.5rem;
+    color:var(--SlightlyHeadings);
+    text-transform: uppercase;
+    font-weight: 400;
+
 }
+@media (min-width: 768px) {
+    h3{
+     text-align: left;
+     font-size: 1.5rem;
+     margin: 0;
+    }
+ }
+span{
+    color: var(--SoftViolet);
+}
+
 .contenedor{
     max-width: 144rem;
     margin: 0 auto;
 }
-.carBrands{ 
-    border-radius: 1rem;  
-    margin: 2rem;
+
+.card{
+    background-color: var(--DarkDesaturatedBlue);
+    margin: 0 2.5rem;
+    border-radius: 1rem;
 }
+
 @media (min-width: 768px) {
-    .carBrands{
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        margin: 5rem 25rem 0 25rem;
+    .card{
+        display:grid;
+        grid-template-columns: repeat(2, 1fr); 
+        column-gap: 5rem;
+        margin: 0 16rem;      
     }
+   
 }
-.carBrands--Sedans,
-.carBrands--SUVs,
-.carBrands--Luxury{
-    padding: 5.1rem;
-}
-.carBrands--Sedans{
-    border-radius: 1rem 1rem 0 0;
-    background-color: var(--brightOrange);
+.card__image{
+    position: relative;
 }
 @media (min-width: 768px) {
-    .carBrands--Sedans{
-        border-radius: 1rem 0 0 1rem;
+    .card__image{
+        grid-column: 2/3;
     }
 }
 
-.carBrands--SUVs{
-    background-color: var(--darkCyan);
-}
-.carBrands--Luxury{
-    background-color: var(--veryDarkCyan);
-    border-radius: 0 0 1rem 1rem;
+.card__image--mask{
+    position: absolute;
+    top: 0;
+    bottom:0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 99.7%;
+    opacity: 0.5;
+    background-color: var(--mask);
+    border-radius: 1rem 1rem 0 0; 
+    
 }
 @media (min-width: 768px) {
-    .carBrands--Luxury{
-        border-radius: 0 1rem 1rem 0;
+   .card__image--mask{
+    grid-column: 2/3;
+    border-radius: 0 1rem 1rem 0;
+   }
+}
+.card__content{
+    padding: 3rem;
+}
+@media (min-width: 768px) {
+    .card__content{
+        grid-row: 1/2;
+        padding: 4rem 5rem 1rem 7rem;
     }
 }
 
-.button--Sedans{
-    color: var(--brightOrange);
+.card__description{
+    text-align: center;
+    font-family: var(--pricipalFont);
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color:var(--SlightlyParagraph);
 }
-.button--SUVs{
-    color: var(--darkCyan);
+@media (min-width: 768px) {
+   .card__description{
+        text-align: left;
+        font-size: 1.6rem;
+   }
 }
-.button--Luxury{
-    color:var(--veryDarkCyan)
+
+@media (min-width: 768px) {
+    .stats{
+        display: flex;
+        justify-content:space-between;
+        margin-top: 5rem;
+        margin-right: 4rem;
+    }
 }
 .footer{
-    color:var(--veryDarkCyan);
-    font-family: var(--principalFont);
+    display: none;
+    text-align: center;
+    font-family: var(--pricipalFont);
     font-size: 1.2rem;
     font-weight: 400;
+    line-height: 1.2;
+    font-family: var(--);
+    color:var(--SlightlyParagraph);
 }
+
+
+
